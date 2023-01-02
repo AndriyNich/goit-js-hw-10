@@ -1,5 +1,5 @@
 export class SearchCountries {
-  static #API_URL = 'https://restcountries.com/v3.1/name/';
+  #API_URL = 'https://restcountries.com/v3.1/name/';
   #fldList = [];
 
   constructor(fldList) {
@@ -19,7 +19,7 @@ export class SearchCountries {
     }
 
     return fetch(
-      `${SearchCountries.#API_URL}${search}${this.#fieldsListToSearchString()}`
+      `${this.#API_URL}${search}${this.#fieldsListToSearchString()}`
     ).then(response => {
       if (!response.ok) {
         return Promise.reject(response);
