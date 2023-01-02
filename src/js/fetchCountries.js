@@ -15,17 +15,12 @@ export class SearchCountries {
   fetchCountries(name) {
     return fetch(
       `${SearchCountries.#API_URL}${name}${this.#fieldsListToSearchString()}`
-    )
-      .then(response => {
-        // if (!response.ok) {
-        //   console.log(response, response.status);
-        //   throw new Error(response.status);
-        // }
+    ).then(response => {
+      if (!response.ok) {
+        return Promise.reject(response);
+      }
 
-        return response.json();
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      return response.json();
+    });
   }
 }
