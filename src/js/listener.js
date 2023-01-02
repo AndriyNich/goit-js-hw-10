@@ -3,7 +3,6 @@ export class Listener {
   #debounce = require('lodash.debounce');
 
   constructor({ selectorSource, callBack }) {
-    console.log(selectorSource);
     document
       .querySelector(selectorSource)
       .addEventListener(

@@ -1,0 +1,51 @@
+.country__info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  font-style: italic;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card__title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.card__country {
+  font-weight: 700;
+  font-size: 32px;
+}
+.card__caption {
+  font-weight: 700;
+  font-size: 14px;
+}
+.card__value {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.country__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.country__item {
+  position: relative;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.country__flag {
+}
+.country__name {
+  font-size: 20;
+  font-weight: 500;
+  //   color: #4e2ea3;
+  font-style: italic;
+}

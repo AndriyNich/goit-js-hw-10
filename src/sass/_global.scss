@@ -1,0 +1,30 @@
+.section {
+  margin: 15px 0;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 768px;
+  min-height: 100vh;
+  padding: 13px 15px 15px 55px;
+  background-image: url(../images/sq.jpg);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 35px;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid tomato;
+  }
+}
+
+#search-box {
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  color: tomato;
+  border-bottom: 2px solid #7847ff;
+  background: transparent;
+}

@@ -13,8 +13,13 @@ export class SearchCountries {
   }
 
   fetchCountries(name) {
+    const search = name.trim();
+    if (search === '') {
+      return Promise.resolve([]);
+    }
+
     return fetch(
-      `${SearchCountries.#API_URL}${name}${this.#fieldsListToSearchString()}`
+      `${SearchCountries.#API_URL}${search}${this.#fieldsListToSearchString()}`
     ).then(response => {
       if (!response.ok) {
         return Promise.reject(response);

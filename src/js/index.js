@@ -1,14 +1,23 @@
+// клас слухача подій
 import { Listener } from './listener';
+// клас отримання даних
 import { DataControler } from './data-controler';
-import { drawCountriesList } from './draw-data';
+// клас малювання результату
+import { DrawCountries } from './draw-data';
+
+const refs = {
+  list: document.querySelector('.country__list'),
+  info: document.querySelector('.country__info'),
+};
 
 const dataControler = new DataControler();
 
-const listener = new Listener({
-  selectorSource: '#search-box',
-  callBack: onSearch,
-});
+// встанвлюємо слухача подій на поле пошуку
+new Listener({ selectorSource: '#search-box', callBack: onSearch });
 
 function onSearch(e) {
-  dataControler.loadData(e.target.value).then(drawCountriesList);
+  // робимо запит на сервер, якщо прийшли коректні дані - виводимо
+  dataControler.loadData(e.target.value).then(data => {
+    new DrawCountries(refs).draw(data);
+  });
 }
