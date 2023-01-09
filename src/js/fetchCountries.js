@@ -12,13 +12,13 @@ export class SearchCountries {
     return `?fields=${this.#fldList.join(',')}`;
   }
 
-  fetchCountries(name) {
+  async fetchCountries(name) {
     const search = name.trim();
     if (search === '') {
-      return Promise.resolve([]);
+      return await Promise.resolve([]);
     }
 
-    return fetch(
+    return await fetch(
       `${this.#API_URL}${search}${this.#fieldsListToSearchString()}`
     ).then(response => {
       if (!response.ok) {
